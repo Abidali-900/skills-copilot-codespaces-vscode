@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PakMarble – Premium Marble Factory, Pakistan</title>
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    /* ── Colour Palette ── */
+    :root {
+      --primary:   #2c6e49;   /* rich green  */
+      --accent:    #d4a017;   /* warm gold   */
+      --light-bg:  #f9f6f1;   /* warm white  */
+      --dark-bg:   #1a1a1a;
+      --text-muted:#666;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a {
+      text-decoration: none; color: #1a1a1a;
+      font-weight: 500; font-size: .95rem;
+      transition: color .2s;
+    }
+    nav ul a:hover { color: var(--primary); }
+
+    /* ── Hero ── */
+    #hero {
+      background: linear-gradient(135deg, var(--primary) 0%, #184d32 60%, #0f2e1e 100%);
+      color: #fff;
+      min-height: 90vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 60px 5%;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(212, 160, 23, .2);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 4px 16px; border-radius: 50px;
+      font-size: .85rem; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    #hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 800; line-height: 1.15;
+      max-width: 700px; margin-bottom: 1.2rem;
+    }
+    #hero h1 span { color: var(--accent); }
+    #hero p {
+      font-size: 1.15rem; max-width: 550px;
+      opacity: .85; margin-bottom: 2.2rem;
+    }
+    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      display: inline-block;
+      padding: 14px 32px; border-radius: 50px;
+      font-weight: 700; font-size: 1rem;
+      text-decoration: none; cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+      border: 2px solid transparent;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.25); }
+    .btn-primary { background: var(--accent); color: #1a1a1a; }
+    .btn-outline { background: transparent; border-color: rgba(255,255,255,.6); color: #fff; }
+
+    /* ── Section Shared ── */
+    section { padding: 80px 5%; }
+    .section-label {
+      display: inline-block; font-size: .8rem;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--primary);
+      margin-bottom: .5rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800; margin-bottom: 1rem;
+    }
+    .section-sub {
+      color: var(--text-muted); max-width: 560px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── About ── */
+    #about { background: var(--light-bg); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+    .about-image {
+      border-radius: 16px; overflow: hidden;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #b0cfc2 0%, #7aaa92 50%, #2c6e49 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+    }
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.5rem; margin-top: 2rem;
+    }
+    .stat-card {
+      background: #fff;
+      border-radius: 12px; padding: 1.2rem 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    }
+    .stat-card .number {
+      font-size: 2rem; font-weight: 800;
+      color: var(--primary);
+    }
+    .stat-card .label { font-size: .85rem; color: var(--text-muted); }
+
+    /* ── Products ── */
+    #products { background: #fff; }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+    }
+    .product-card {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid #e8e4de;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.12);
+    }
+    .product-img {
+      height: 160px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+    }
+    .product-img.white-marble  { background: linear-gradient(135deg, #f0eee8, #ddd8cc); }
+    .product-img.green-marble  { background: linear-gradient(135deg, #c8dfd0, #7aaa92); }
+    .product-img.black-marble  { background: linear-gradient(135deg, #4a4a4a, #1a1a1a); }
+    .product-img.onyx-marble   { background: linear-gradient(135deg, #f5e6c8, #d4a017); }
+    .product-body { padding: 1.3rem; }
+    .product-body h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .4rem; }
+    .product-body p  { font-size: .9rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .tag {
+      display: inline-block; font-size: .75rem; font-weight: 600;
+      padding: 2px 10px; border-radius: 50px;
+      background: #eaf2ee; color: var(--primary);
+    }
+
+    /* ── Why Us ── */
+    #why-us { background: var(--light-bg); }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .feature-card {
+      background: #fff; border-radius: 16px;
+      padding: 2rem; text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+      transition: box-shadow .2s;
+    }
+    .feature-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+    .feature-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: #eaf2ee;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; margin: 0 auto 1rem;
+    }
+    .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .5rem; }
+    .feature-card p  { font-size: .88rem; color: var(--text-muted); }
+
+    /* ── Contact ── */
+    #contact { background: #fff; }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+    }
+    .contact-info h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem; }
+    .contact-info p  { color: var(--text-muted); margin-bottom: 1.8rem; }
+    .info-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      margin-bottom: 1.2rem;
+    }
+    .info-icon {
+      width: 44px; height: 44px; min-width: 44px; border-radius: 50%;
+      background: #eaf2ee;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .info-text strong { display: block; font-size: .85rem; margin-bottom: 2px; }
+    .info-text span   { font-size: .9rem; color: var(--text-muted); }
+    form { display: flex; flex-direction: column; gap: 1rem; }
+    form input, form textarea, form select {
+      width: 100%; padding: 12px 16px; border-radius: 10px;
+      border: 1.5px solid #ddd; font-size: .95rem; font-family: inherit;
+      outline: none; transition: border-color .2s;
+    }
+    form input:focus, form textarea:focus, form select:focus {
+      border-color: var(--primary);
+    }
+    form textarea { resize: vertical; min-height: 120px; }
+    form .btn-primary { border: none; width: 100%; font-size: 1rem; padding: 14px; border-radius: 10px; color: #1a1a1a; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark-bg); color: rgba(255,255,255,.75);
+      text-align: center; padding: 2rem 5%;
+      font-size: .88rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer .footer-logo { font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: .5rem; }
+    footer .footer-logo span { color: var(--accent); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      nav ul { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ Navigation ═══ -->
+  <nav>
+    <a href="#hero" class="logo">Pak<span>Marble</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══ Hero ═══ -->
+  <section id="hero">
+    <div class="hero-badge">🇵🇰 Made in Pakistan</div>
+    <h1>Premium <span>Marble</span> for Every Vision</h1>
+    <p>
+      Crafting nature's finest stone into timeless surfaces — straight from the mountains of Pakistan
+      to homes and projects around the world.
+    </p>
+    <div class="btn-group">
+      <a href="#products" class="btn btn-primary">Explore Products</a>
+      <a href="#contact"  class="btn btn-outline">Get a Quote</a>
+    </div>
+  </section>
+
+  <!-- ═══ About ═══ -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-image">🏔️</div>
+      <div>
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title">Marble Crafted with Passion &amp; Precision</h2>
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">
+          Founded in Lahore with quarrying operations in Khyber Pakhtunkhwa and Balochistan,
+          <strong>PakMarble</strong> has been transforming raw stone into beautiful surfaces for
+          over 25 years. Our factory combines traditional stone-cutting craftsmanship with
+          modern CNC technology to deliver flawless finishes every time.
+        </p>
+        <p style="color: var(--text-muted);">
+          We supply architects, interior designers, builders, and homeowners across Pakistan
+          and export to the Middle East, Europe, and beyond.
+        </p>
+        <div class="about-stats">
+          <div class="stat-card"><div class="number">25+</div><div class="label">Years of Excellence</div></div>
+          <div class="stat-card"><div class="number">500+</div><div class="label">Projects Delivered</div></div>
+          <div class="stat-card"><div class="number">30+</div><div class="label">Marble Varieties</div></div>
+          <div class="stat-card"><div class="number">15+</div><div class="label">Export Countries</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Products ═══ -->
+  <section id="products">
+    <span class="section-label">Our Products</span>
+    <h2 class="section-title">Premium Marble Collections</h2>
+    <p class="section-sub">
+      From classic whites to rare coloured veins, we offer a wide range of natural marble
+      finishes for floors, walls, countertops, and custom applications.
+    </p>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-img white-marble">🤍</div>
+        <div class="product-body">
+          <h3>Ziarat White Marble</h3>
+          <p>Quarried from Balochistan, this pristine white marble with subtle grey veining is ideal for floors and feature walls.</p>
+          <span class="tag">Flooring &amp; Walls</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img green-marble">💚</div>
+        <div class="product-body">
+          <h3>Swat Green Marble</h3>
+          <p>Rich emerald tones from the Swat Valley — a stunning choice for countertops, reception desks, and statement pieces.</p>
+          <span class="tag">Countertops</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img black-marble">🖤</div>
+        <div class="product-body">
+          <h3>Gilgit Black Marble</h3>
+          <p>Deep black with golden veins, perfect for luxury interiors, feature fireplaces, and high-end commercial spaces.</p>
+          <span class="tag">Luxury Interiors</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img onyx-marble">🟡</div>
+        <div class="product-body">
+          <h3>Pakistani Onyx</h3>
+          <p>Translucent honey-gold onyx slabs that glow beautifully when backlit — perfect for decorative panels and bars.</p>
+          <span class="tag">Decorative</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Why Us ═══ -->
+  <section id="why-us">
+    <span class="section-label">Why Choose Us</span>
+    <h2 class="section-title">Quality You Can See &amp; Touch</h2>
+    <p class="section-sub">We don't just sell marble — we deliver an experience backed by expertise, technology, and care.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⛏️</div>
+        <h3>Direct Quarry Source</h3>
+        <p>We own our quarries, ensuring consistent quality and competitive factory-direct pricing.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏭</div>
+        <h3>Modern Factory</h3>
+        <p>CNC cutting, automated polishing lines, and strict QC at every stage of production.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✂️</div>
+        <h3>Custom Sizing</h3>
+        <p>Tiles, slabs, steps, window sills, borders — cut to any dimension you need.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚚</div>
+        <h3>Nationwide Delivery</h3>
+        <p>Safe, insured delivery to any city in Pakistan with expert handling and packaging.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <h3>Global Export</h3>
+        <p>Experienced in international shipping with all required certifications and documentation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h3>Expert Support</h3>
+        <p>Our stone specialists help you choose the right marble for your project and budget.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Contact ═══ -->
+  <section id="contact">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="section-label">Contact Us</span>
+        <h2>Let's Build Something Beautiful</h2>
+        <p>
+          Get in touch for a free consultation, product samples, or a custom quote.
+          We respond within 24 hours.
+        </p>
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div class="info-text">
+            <strong>Factory &amp; Showroom</strong>
+            <span>Industrial Area, Lahore, Punjab, Pakistan</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div class="info-text">
+            <strong>Phone / WhatsApp</strong>
+            <span>+92 300 1234567</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">✉️</div>
+          <div class="info-text">
+            <strong>Email</strong>
+            <span>info@pakmarble.pk</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">🕐</div>
+          <div class="info-text">
+            <strong>Working Hours</strong>
+            <span>Mon – Sat: 9 AM – 6 PM (PST)</span>
+          </div>
+        </div>
+      </div>
+
+      <form onsubmit="handleSubmit(event)">
+        <input type="text"   placeholder="Your Name"           required />
+        <input type="email"  placeholder="Email Address"       required />
+        <input type="tel"    placeholder="Phone / WhatsApp"            />
+        <select>
+          <option value="" disabled selected>Select Product Interest</option>
+          <option>Ziarat White Marble</option>
+          <option>Swat Green Marble</option>
+          <option>Gilgit Black Marble</option>
+          <option>Pakistani Onyx</option>
+          <option>Other / Multiple</option>
+        </select>
+        <textarea placeholder="Tell us about your project or requirement…"></textarea>
+        <button type="submit" class="btn btn-primary">Send Enquiry →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══ Footer ═══ -->
+  <footer>
+    <div class="footer-logo">Pak<span>Marble</span></div>
+    <p>Premium Marble Factory &amp; Supplier — Lahore, Pakistan</p>
+    <p style="margin-top:.5rem;">
+      &copy; 2025 PakMarble. All rights reserved.
+      &nbsp;|&nbsp; <a href="mailto:info@pakmarble.pk">info@pakmarble.pk</a>
+    </p>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      alert('Thank you for your enquiry! We will get back to you within 24 hours.');
+      e.target.reset();
+    }
+  </script>
+
+</body>
+</html>
