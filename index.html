@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PakMarble – Premium Marble Factory, Pakistan</title>
+  <title>Tijarah Marble – Premium Marble Factory, Karachi</title>
   <style>
     /* ── Reset & Base ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -159,14 +159,40 @@
       box-shadow: 0 12px 30px rgba(0,0,0,.12);
     }
     .product-img {
-      height: 160px;
+      height: 180px;
       display: flex; align-items: center; justify-content: center;
       font-size: 4rem;
+      background-size: cover; background-position: center; background-repeat: no-repeat;
+      position: relative;
     }
-    .product-img.white-marble  { background: linear-gradient(135deg, #f0eee8, #ddd8cc); }
-    .product-img.green-marble  { background: linear-gradient(135deg, #c8dfd0, #7aaa92); }
-    .product-img.black-marble  { background: linear-gradient(135deg, #4a4a4a, #1a1a1a); }
-    .product-img.onyx-marble   { background: linear-gradient(135deg, #f5e6c8, #d4a017); }
+    .product-img.featured-badge::after {
+      content: '⭐ Our #1 Seller';
+      position: absolute; top: 10px; left: 10px;
+      background: var(--accent); color: #1a1a1a;
+      font-size: .7rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 50px;
+      letter-spacing: .5px;
+    }
+    .product-img.bw-marble    {
+      background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=360&fit=crop&auto=format');
+      background-color: #b0afac;
+    }
+    .product-img.white-marble {
+      background-image: url('https://images.unsplash.com/photo-1545241047-6083a3684587?w=600&h=360&fit=crop&auto=format');
+      background-color: #ddd8cc;
+    }
+    .product-img.green-marble {
+      background-image: url('https://images.unsplash.com/photo-1547135504-00cddd2ab1e0?w=600&h=360&fit=crop&auto=format');
+      background-color: #7aaa92;
+    }
+    .product-img.black-marble {
+      background-image: url('https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?w=600&h=360&fit=crop&auto=format');
+      background-color: #2a2a2a;
+    }
+    .product-img.onyx-marble  {
+      background-image: url('https://images.unsplash.com/photo-1618397746666-63405ce5d015?w=600&h=360&fit=crop&auto=format');
+      background-color: #c8a856;
+    }
     .product-body { padding: 1.3rem; }
     .product-body h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .4rem; }
     .product-body p  { font-size: .9rem; color: var(--text-muted); margin-bottom: 1rem; }
@@ -251,7 +277,7 @@
 
   <!-- ═══ Navigation ═══ -->
   <nav>
-    <a href="#hero" class="logo">Pak<span>Marble</span></a>
+    <a href="#hero" class="logo">Tijarah<span>Marble</span></a>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#products">Products</a></li>
@@ -282,9 +308,9 @@
         <span class="section-label">Our Story</span>
         <h2 class="section-title">Marble Crafted with Passion &amp; Precision</h2>
         <p style="color: var(--text-muted); margin-bottom: 1rem;">
-          Founded in Lahore with quarrying operations in Khyber Pakhtunkhwa and Balochistan,
-          <strong>PakMarble</strong> has been transforming raw stone into beautiful surfaces for
-          over 25 years. Our factory combines traditional stone-cutting craftsmanship with
+          Based in Karachi with quarrying operations across Balochistan and Khyber Pakhtunkhwa,
+          <strong>Tijarah Marble</strong> has been transforming raw stone into beautiful surfaces for
+          over 25 years. Our factory on Manghopir Road combines traditional stone-cutting craftsmanship with
           modern CNC technology to deliver flawless finishes every time.
         </p>
         <p style="color: var(--text-muted);">
@@ -310,8 +336,16 @@
       finishes for floors, walls, countertops, and custom applications.
     </p>
     <div class="products-grid">
+      <div class="product-card" style="border-color: var(--accent); border-width: 2px;">
+        <div class="product-img bw-marble featured-badge"></div>
+        <div class="product-body">
+          <h3>Black &amp; White Marble</h3>
+          <p>Our signature product — striking black and white veined marble quarried in Pakistan. Perfect for floors, feature walls, staircases, and statement countertops.</p>
+          <span class="tag">⭐ Best Seller</span>
+        </div>
+      </div>
       <div class="product-card">
-        <div class="product-img white-marble">🤍</div>
+        <div class="product-img white-marble"></div>
         <div class="product-body">
           <h3>Ziarat White Marble</h3>
           <p>Quarried from Balochistan, this pristine white marble with subtle grey veining is ideal for floors and feature walls.</p>
@@ -319,7 +353,7 @@
         </div>
       </div>
       <div class="product-card">
-        <div class="product-img green-marble">💚</div>
+        <div class="product-img green-marble"></div>
         <div class="product-body">
           <h3>Swat Green Marble</h3>
           <p>Rich emerald tones from the Swat Valley — a stunning choice for countertops, reception desks, and statement pieces.</p>
@@ -327,7 +361,7 @@
         </div>
       </div>
       <div class="product-card">
-        <div class="product-img black-marble">🖤</div>
+        <div class="product-img black-marble"></div>
         <div class="product-body">
           <h3>Gilgit Black Marble</h3>
           <p>Deep black with golden veins, perfect for luxury interiors, feature fireplaces, and high-end commercial spaces.</p>
@@ -335,7 +369,7 @@
         </div>
       </div>
       <div class="product-card">
-        <div class="product-img onyx-marble">🟡</div>
+        <div class="product-img onyx-marble"></div>
         <div class="product-body">
           <h3>Pakistani Onyx</h3>
           <p>Translucent honey-gold onyx slabs that glow beautifully when backlit — perfect for decorative panels and bars.</p>
@@ -398,21 +432,21 @@
           <div class="info-icon">📍</div>
           <div class="info-text">
             <strong>Factory &amp; Showroom</strong>
-            <span>Industrial Area, Lahore, Punjab, Pakistan</span>
+          <span>Plot No. NC-31/4, Manghopir Road, Karachi</span>
           </div>
         </div>
         <div class="info-item">
           <div class="info-icon">📞</div>
           <div class="info-text">
             <strong>Phone / WhatsApp</strong>
-            <span>+92 300 1234567</span>
+            <span>0343-2179909</span>
           </div>
         </div>
         <div class="info-item">
           <div class="info-icon">✉️</div>
           <div class="info-text">
             <strong>Email</strong>
-            <span>info@pakmarble.pk</span>
+            <span>admin@abidali.vip</span>
           </div>
         </div>
         <div class="info-item">
@@ -424,19 +458,23 @@
         </div>
       </div>
 
-      <form onsubmit="handleSubmit(event)">
-        <input type="text"   placeholder="Your Name"           required />
-        <input type="email"  placeholder="Email Address"       required />
-        <input type="tel"    placeholder="Phone / WhatsApp"            />
-        <select>
+      <form action="https://formsubmit.co/admin@abidali.vip" method="POST">
+        <input type="hidden" name="_subject" value="New Marble Enquiry – Tijarah Marble" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="text"   name="name"    placeholder="Your Name"           required />
+        <input type="email"  name="email"   placeholder="Email Address"       required />
+        <input type="tel"    name="phone"   placeholder="Phone / WhatsApp"            />
+        <select name="product">
           <option value="" disabled selected>Select Product Interest</option>
+          <option>Black &amp; White Marble (Best Seller)</option>
           <option>Ziarat White Marble</option>
           <option>Swat Green Marble</option>
           <option>Gilgit Black Marble</option>
           <option>Pakistani Onyx</option>
           <option>Other / Multiple</option>
         </select>
-        <textarea placeholder="Tell us about your project or requirement…"></textarea>
+        <textarea name="message" placeholder="Tell us about your project or requirement…"></textarea>
         <button type="submit" class="btn btn-primary">Send Enquiry →</button>
       </form>
     </div>
@@ -444,20 +482,17 @@
 
   <!-- ═══ Footer ═══ -->
   <footer>
-    <div class="footer-logo">Pak<span>Marble</span></div>
-    <p>Premium Marble Factory &amp; Supplier — Lahore, Pakistan</p>
+    <div class="footer-logo">Tijarah<span>Marble</span></div>
+    <p>Premium Marble Factory &amp; Supplier — Karachi, Pakistan</p>
     <p style="margin-top:.5rem;">
-      &copy; 2025 PakMarble. All rights reserved.
-      &nbsp;|&nbsp; <a href="mailto:info@pakmarble.pk">info@pakmarble.pk</a>
+      &copy; 2025 Tijarah Marble. All rights reserved.
+      &nbsp;|&nbsp; <a href="mailto:admin@abidali.vip">admin@abidali.vip</a>
+      &nbsp;|&nbsp; <a href="https://tijarahmarble.com">tijarahmarble.com</a>
     </p>
   </footer>
 
   <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      alert('Thank you for your enquiry! We will get back to you within 24 hours.');
-      e.target.reset();
-    }
+    // Smooth scroll for "Get a Quote" and all anchor links is handled by CSS scroll-behavior: smooth
   </script>
 
 </body>
