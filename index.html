@@ -256,6 +256,36 @@
     form textarea { resize: vertical; min-height: 120px; }
     form .btn-primary { border: none; width: 100%; font-size: 1rem; padding: 14px; border-radius: 10px; color: #1a1a1a; }
 
+    /* ── Location / Map ── */
+    #location { background: var(--light-bg); }
+    .map-container {
+      position: relative; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.12);
+    }
+    .map-container iframe { display: block; width: 100%; height: 420px; border: 0; }
+    .directions-btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.2rem;
+      padding: 12px 28px; border-radius: 50px;
+      background: var(--primary); color: #fff;
+      font-weight: 700; font-size: .95rem;
+      text-decoration: none;
+      transition: background .2s, transform .15s, box-shadow .15s;
+    }
+    .directions-btn:hover {
+      background: #1e4f35;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(44,110,73,.35);
+    }
+
+    /* ── WhatsApp link ── */
+    .whatsapp-link {
+      color: var(--text-muted); text-decoration: none;
+      display: inline-flex; align-items: center; gap: .35rem;
+      transition: color .2s;
+    }
+    .whatsapp-link:hover { color: #25D366; }
+
     /* ── Footer ── */
     footer {
       background: var(--dark-bg); color: rgba(255,255,255,.75);
@@ -282,6 +312,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#location">Location</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -411,6 +442,26 @@
     </div>
   </section>
 
+  <!-- ═══ Location / Map ═══ -->
+  <section id="location">
+    <span class="section-label">Find Us</span>
+    <h2 class="section-title">Visit Our Factory &amp; Showroom</h2>
+    <p class="section-sub">
+      Come see our marble collections in person. Our factory &amp; showroom is on Manghopir Road, Karachi — just follow the map below.
+    </p>
+    <div class="map-container">
+      <iframe
+        title="Tijarah Marble Factory – Manghopir Road, Karachi"
+        src="https://maps.google.com/maps?q=Manghopir+Road,+Karachi,+Pakistan&output=embed"
+        allowfullscreen loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <a href="https://maps.app.goo.gl/fRX8EQ6R1E3YiYmy8" target="_blank" rel="noopener noreferrer" class="directions-btn">
+      🗺️ Get Directions on Google Maps
+    </a>
+  </section>
+
   <!-- ═══ Contact ═══ -->
   <section id="contact">
     <div class="contact-grid">
@@ -432,7 +483,11 @@
           <div class="info-icon">📞</div>
           <div class="info-text">
             <strong>Phone / WhatsApp</strong>
-            <span>0343-2179909</span>
+            <a href="https://wa.me/923432179909?text=Hello%2C%20I%27m%20interested%20in%20your%20marble%20products.%20Could%20you%20please%20share%20more%20details%3F"
+               target="_blank" rel="noopener noreferrer" class="whatsapp-link">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" style="vertical-align:middle;fill:#25D366;flex-shrink:0;" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.857L.057 23.887a.5.5 0 0 0 .619.599l6.086-1.588A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.943 0-3.772-.524-5.348-1.438l-.386-.225-3.98 1.038 1.067-3.896-.253-.404A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              0343-2179909
+            </a>
           </div>
         </div>
         <div class="info-item">
